@@ -1,0 +1,24 @@
+from random import randint
+import time
+dados=[0,0,0,0,0,0,0,0,0,0];
+pesos=[1,2,3,5,4,6,8,7,9,10];
+dados = [[0 for i in xrange(10)] for i in xrange(3)]
+objetivo= 25;
+
+inicio_execucao = time.time()
+for h in range(10):
+    for i in range(3):
+        total=0;
+        for j in range(10):
+            dados[i][j]=randint(0,1);
+            total+=dados[i][j]*pesos[j];
+            print total;
+        if total==objetivo:
+            print "Resultado encontrado!"
+            break;
+    print "Geracao %d" %h;
+    print dados;
+
+duracao = time.time() - inicio_execucao;
+print duracao
+
